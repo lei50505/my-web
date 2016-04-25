@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.rest.util.ConfigUtils;
+
 @RestController
 public class GreetingController {
 
@@ -18,6 +20,7 @@ public class GreetingController {
     @RequestMapping(value = "/hello.do", method = RequestMethod.GET)
     public ResponseEntity<Map<String, Object>> hello() {
         log.info("进入");
+        log.info("driver: "+ConfigUtils.getString("db.driver"));
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("message", "Hello");
         log.info("完成");

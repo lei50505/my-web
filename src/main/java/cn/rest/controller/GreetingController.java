@@ -23,4 +23,13 @@ public class GreetingController {
         log.info("完成");
         return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/error.do", method = RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> error() {
+        log.info("进入");
+        int num = 10 / 0;
+        System.out.println(num);
+        Map<String, Object> map = new HashMap<String, Object>();
+        return new ResponseEntity<Map<String, Object>>(map, HttpStatus.OK);
+    }
 }
